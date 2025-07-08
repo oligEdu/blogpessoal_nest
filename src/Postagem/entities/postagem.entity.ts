@@ -11,10 +11,12 @@ export class Postagem {
   @PrimaryGeneratedColumn()
   id: number;
 
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-call
   @IsNotEmpty()
   @Column({ length: 100, nullable: false })
   titulo: string;
 
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-call
   @IsNotEmpty()
   @Column({ length: 1000, nullable: false })
   texto: string;
