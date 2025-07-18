@@ -7,6 +7,7 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 import { Tema } from '../../Tema/entities/tema.entity';
+import { Usuario } from '../../usuario/entities/usuario.entity';
 
 @Entity({ name: 'tb_postagens' })
 export class Postagem {
@@ -24,9 +25,13 @@ export class Postagem {
   @UpdateDateColumn()
   data: Date;
 
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-return
   @ManyToOne(() => Tema, (tema) => tema.postagem, {
     onDelete: 'CASCADE',
   })
   tema: Tema;
+
+  @ManyToOne(() => Usuario, (usuario) => usuario.postagem, {
+    onDelete: 'CASCADE',
+  })
+  usuario: Usuario;
 }
